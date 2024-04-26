@@ -1,0 +1,438 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+
+:root {
+  --font: "Space Mono", monospace;
+  --background: rgb(246, 248, 255);
+  --component-background: rgb(254, 254, 254);
+  --title: rgb(43, 52, 66);
+  --text: rgb(75, 106, 155);
+  --third: rgb(105, 124, 154);
+  --white: rgb(255, 255, 255);
+  --shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  --bigShadow: 0 16px 30px -10px rgba(70, 96, 187, 0.2);
+  --colorMode: rgb(43, 52, 66);
+  --secondary: rgb(0, 121, 255);
+  --btn-hover: rgb(96, 171, 255);
+  --error: rgb(247, 70, 70);
+}
+
+.darkMode {
+  --background: rgb(20, 29, 47);
+  --component-background: rgb(30, 42, 71);
+  --title: rgb(255, 255, 255);
+  --text: rgb(255, 255, 255);
+  --third: rgb(255, 255, 255);
+  --shadow: none;
+  --bigShadow: none;
+  --colorMode: rgb(144, 164, 212);
+}
+
+*,
+::before,
+::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: auto 20%;
+  font-family: var(--font);
+  background-color: var(--background);
+}
+
+h1 {
+  color: var(--title);
+  font-weight: bold;
+  font-size: 26px;
+  line-height: 38px;
+}
+
+h2 {
+  color: var(--secondary);
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+h3 {
+  color: var(--text);
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 20px;
+}
+
+h4 {
+  color: var(--title);
+  font-weight: bold;
+  font-size: 22px;
+  line-height: 33px;
+}
+
+p {
+  color: var(--text);
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 25px;
+}
+
+a {
+  color: var(--text);
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 25px;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+@media all and (max-width: 1200px) {
+  body {
+    margin: 20px 10%;
+  }
+}
+
+@media all and (max-width: 625px) {
+  body {
+    margin: 30px 24px;
+  }
+
+  h1 {
+    font-size: 16px;
+    line-height: 28px;
+  }
+
+  h2 {
+    font-size: 13px;
+    line-height: 15px;
+  }
+
+  h3 {
+    font-size: 11px;
+    line-height: 18px;
+  }
+
+  h4 {
+    font-size: 16px;
+    line-height: 27px;
+  }
+
+  p {
+    font-size: 13px;
+    line-height: 23px;
+  }
+
+  a {
+    font-size: 13px;
+    line-height: 23px;
+  }
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 38px;
+}
+
+header h1 {
+  cursor: pointer;
+}
+
+.colorMode {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  cursor: pointer;
+  padding: 2px;
+  transition: 0.2s;
+}
+
+.colorMode p {
+  color: var(--third);
+  font-size: 13px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+}
+
+.colorMode:hover p,
+.colorMode:hover path {
+  color: var(--colorMode);
+  fill: var(--colorMode);
+}
+
+.searchBar {
+  background-color: var(--component-background);
+  border-radius: 15px;
+  width: 100%;
+  height: 69px;
+  display: grid;
+  grid-template-columns: 34px 1fr 106px;
+  margin: 30px 0;
+  padding: 9.5px 10px 9.5px 32px;
+  box-shadow: var(--shadow);
+}
+
+.searchBar img {
+  width: 24px;
+  height: 24px;
+  margin-top: 14px;
+}
+
+#textInput {
+  font-family: var(--font);
+  color: var(--title);
+  caret-color: var(--secondary);
+  background-color: var(--component-background);
+  font-size: 18px;
+  border: none;
+  width: 100%;
+  height: 50px;
+}
+
+#textInput:focus {
+  outline: none;
+}
+
+#textInput::placeholder {
+  font-family: var(--font);
+  color: var(--text);
+  font-size: 18px;
+  letter-spacing: -1px;
+}
+
+.searchBar .error {
+  display: none;
+  color: var(--error);
+  font-size: 15px;
+  font-weight: bold;
+  margin-top: 13px;
+}
+
+.searchBar button {
+  color: var(--white);
+  background-color: var(--secondary);
+  font-size: 16px;
+  font-weight: bold;
+  width: 100%;
+  height: 50px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+  transition: 0.2s;
+}
+
+.searchBar button:hover {
+  background-color: var(--btn-hover);
+}
+
+.searchBar button:active {
+  scale: 0.95;
+}
+
+#result {
+  background-color: var(--component-background);
+  border-radius: 15px;
+  box-shadow: var(--bigShadow);
+  padding: 48px 38px 48px 58px;
+  width: 100%;
+}
+
+.result__top {
+  display: grid;
+  grid-template-columns: 154px 280px 1fr;
+  grid-template-rows: 64px 53px;
+}
+
+#result img {
+  width: 117px;
+  height: 117px;
+  clip-path: circle();
+}
+
+.middle h2 {
+  margin-top: 2px;
+}
+
+.bio {
+  color: var(--text);
+  grid-column: 2/4;
+  margin-top: 20px;
+}
+
+.right {
+  color: var(--third);
+  grid-row: 1;
+  grid-column: 3;
+  margin-top: 8px;
+  text-align: end;
+}
+
+.result__bottom {
+  display: grid;
+  grid-template-rows: 85px 1fr;
+  margin-top: 32px;
+  margin-left: 154px;
+}
+
+.activity {
+  background-color: var(--background);
+  border-radius: 10px;
+  display: flex;
+  justify-content: none;
+  align-items: center;
+  padding: 0 32px;
+}
+
+.activity__data {
+  margin-right: 25%;
+}
+
+.social {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 19px;
+  margin-top: 37px;
+  color: var(--text);
+}
+
+.social__link {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-right: 20px;
+}
+
+.social__link a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+@media all and (max-width: 1200px) {
+  .searchBar {
+    grid-template-columns: 34px 1fr 106px;
+  }
+
+  #result {
+    padding: 40px;
+  }
+
+  .result__top {
+    grid-template-columns: 154px 1fr;
+    grid-template-rows: 77px 40px 1fr;
+  }
+
+  .middle {
+    margin-top: 12px;
+  }
+
+  .middle h2 {
+    margin-top: 0;
+  }
+
+  .bio {
+    grid-column: 1/3;
+    margin-top: 24px;
+  }
+
+  .right {
+    grid-row: 2;
+    grid-column: 2;
+    margin-top: 4px;
+    text-align: start;
+  }
+
+  .result__bottom {
+    margin-left: 0;
+  }
+
+  .social {
+    margin-top: 30px;
+  }
+
+  .social__link {
+    margin-right: 0;
+  }
+}
+
+@media all and (max-width: 625px) {
+  header h1 {
+    font-size: 26px;
+  }
+
+  .searchBar {
+    grid-template-columns: 30px 1fr 84px;
+    height: 60px;
+    padding: 6.5px 7px 7.5px 16px;
+  }
+
+  .searchBar img {
+    width: 20px;
+    height: 20px;
+  }
+
+  #textInput {
+    font-size: 13px;
+    height: 46px;
+  }
+
+  #textInput::placeholder {
+    font-size: 13px;
+  }
+
+  .searchBar button {
+    font-size: 14px;
+    height: 46px;
+  }
+
+  #result {
+    padding: 32px 24px;
+  }
+
+  .result__top {
+    grid-template-columns: 89px 1fr;
+    grid-template-rows: 44px 26px 1fr;
+  }
+
+  #result img {
+    width: 70px;
+    height: 70px;
+  }
+
+  .middle {
+    margin-top: 0;
+  }
+
+  .result__bottom {
+    margin-top: 23px;
+  }
+
+  .activity {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 15px;
+    text-align: center;
+  }
+
+  .activity__data {
+    margin-right: 0;
+  }
+
+  .social {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 16px;
+    margin-top: 24px;
+  }
+}
